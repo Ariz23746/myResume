@@ -140,7 +140,7 @@ if(cross) {
 
 const changingText = document.querySelector('.changing-text');
 
-const texts = ['freelancer','Developer','Enthusiast'];
+const texts = ['Freelancer','Developer','Enthusiast'];
 let count = 0;
 let index = 0;
 let currentText = "";
