@@ -1,0 +1,603 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400&display=swap" rel="stylesheet">
+	
+	<link rel="stylesheet" href="{% static 'css/Resume.css' %}">
+	<style>
+		:root {
+			--hamColor: rgb(158, 236, 50);
+			--navBg: #2b2b2b;
+			--lineColor:#373737;
+			--paraColor:#bdbdbd;
+		}
+		ul.ham-activate {
+			transform: rotateX(-90deg) translateZ(-100px);
+			opacity: 0;
+			pointer-events: none;
+		}
+		.image-container {
+			height: 60%;
+			width: 100%;
+			background: url("{% static 'img/d2449eaa-00ef-46c7-b410-348371d49b66.JPG' %}") no-repeat center/cover;
+			background-position: 0px -40px;
+			border-radius: 5px;
+			clip-path: polygon(0% 0%, 0% 80%, 49% 100%, 50% 100%,100% 80%, 100% 0%);
+		}
+		.message-container {
+			width: 40%;
+			height: 100px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin: auto;
+			flex-wrap: wrap;
+			padding: 20px;
+			text-align: center;
+			background: var(--hamColor);
+			background: linear-gradient(to left bottom, #e4e4e410 30%, #b3b3b300 70%);
+			color: var(--hamColor);
+			/* border: 1px solid var(--hamColor); */
+			z-index: 90;
+			position: fixed;
+			top: 40%;
+			left: 50%;
+			opacity: 0;
+			pointer-events:none;
+			transform: translate(-50%,-50%);
+			transition: 
+			opacity 0.3s cubic-bezier(0.215, 0.610, 0.355, 1),
+			top 0.3s cubic-bezier(0.215, 0.610, 0.355, 1);
+		}
+		.message-container.active-message {
+			opacity: 1;
+			pointer-events: all;
+			top: 50%;
+
+			
+			
+		}
+		.message-container > h4 > span {
+			color: var(--hamColor);
+		}
+		.cross {
+			width: 50px;
+			height: 50px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			z-index: 90;
+			margin-top: 0px;
+			position: fixed;
+			top: 31%;
+			left: 71%;
+			flex-direction: column;
+			transform: translate(-50%,-50%);
+			opacity: 0;
+			pointer-events: none;
+			transition: 
+			opacity 0.3s cubic-bezier(0.215, 0.610, 0.355, 1),
+			top 0.3s cubic-bezier(0.215, 0.610, 0.355, 1);
+			cursor: pointer;
+		}
+		.cross.active-message {
+			top: 41%;
+
+			opacity: 1;
+			pointer-events: all;
+		}
+		.line-1 {
+			width: 60%;
+			height: 2px;
+			transform: rotate(45deg) translate(-5px,6px);
+			background: var(--hamColor);
+		}
+		.line-2 {
+			width: 60%;
+			height: 2px;
+			transform: rotate(-45deg) translate(-5px,-6px);
+			background: var(--hamColor);
+		}
+		@media (max-width: 500px) {
+			.message-container {
+				width: 80%;
+			}
+			.cross {
+				left: 94%;
+			}
+		}
+	</style>
+</head>
+<body>
+
+	<nav>
+		<div class="ham-burger">
+			<div class="line1"></div>
+		</div>
+		<ul>
+			<li class="active-nav-link">
+				<i class="active-nav-link nav-font-awesome fas fa-user-secret"></i>
+				<a class="active-nav-link" href="#about">about</a>
+			</li>
+			<li>
+				<i class="nav-font-awesome fas fa-file-alt"></i>
+				<a href="#resume">Resume</a>
+			</li>
+			<li>
+				<i class="nav-font-awesome fas fa-paint-brush"></i>
+				<a href="#works">works</a>
+			</li>
+			<li>
+				<i class="nav-font-awesome fas fa-at"></i>
+				<a href="#contact">Contact</a>
+			</li>
+		
+		</ul>
+	</nav>
+
+	{% for message in messages %}
+				<div class="cross">
+					<div class="line-1"></div>
+					<div class="line-2"></div>
+				</div>
+				<div class="mt-5 message-container">
+
+					<h4>Thank You for Contacting me! <span style="text-transform: uppercase;">{{ message }}</span><br>
+					<p style="font-size: 12px;">I will Reach you soon! cheers</p></h4>
+					
+				</div>
+			
+	{% endfor %}
+
+	<div class="container">
+		<div class="photo-div">
+			<div class="image-container">
+			</div>
+			
+			<div class="caption">
+				<h1>MOHAMMAD ARIZ KHAN</h1>
+				<p class="changing-text"></p>
+				<div class="social-icons">
+					<i class="social fab fa-facebook-f"></i>
+					<i class="social fab fa-google"></i>
+					<i class="social fab fa-twitter"></i>
+					<i class="social fab fa-github"></i>
+				</div>
+				<div class="button-container">
+					<a href="#" class="btns">Download CV</a>
+					<a href="#" class="btns-2">CONTACT ME</a>
+				</div>
+			</div>
+		</div>
+		
+		<div class="scrollable-div">
+			<div id="about" class="about-me-tab active-div">
+				<div class="about-me">
+					<h3>About me</h3>
+					<div class="bio-data">
+						<div class="name-desc">
+							<p><span>Hello! I'm Mohammad Ariz Khan.<br></span> 
+								Full Stack developer from India, New Delhi. I have rich experience
+								in web site building,
+								also I am good at wordpress.
+								I love to talk with you about our unique.
+							</p>
+						</div>
+						<div class="age-graph">
+							<div class="progress-bar">
+								<span>Age:</span>
+								<p>23</p>
+							</div>
+							<div class="progress-bar">
+								<span>Residence:</span>
+								<p>INDIA</p>
+							</div>
+							<div class="progress-bar">
+								<span>Freelance:</span>
+								<p>Available</p>
+							</div>
+							<div class="progress-bar">
+								<span>Address:</span>
+								<p>New Delhi, INDIA</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="about-me">
+					<h3>My Hobbies</h3>
+					<div class="bio-data">
+						<div class="boxes-icons">
+							<i class="services-icon fas fa-code"></i>
+							<h3>Web Development</h3>
+							<p>Modern and mobile-ready website that will help you reach all of your marketing.</p> 
+						
+						</div>
+						<div class="boxes-icons">
+							<i class="services-icon far fa-question-circle"></i>
+							<h3>Doubt Solving</h3>
+							<p>Try my best to solve doubts related to web Development on CodeMentor</p> 
+							
+						</div>
+						<div class="boxes-icons">
+							<i class="services-icon fas fa-futbol"></i>
+							<h3>Football</h3>
+							<p>Its one of the precious skill in my Aresnal. Love to see him play THE GOAT MESSI</p> 
+							
+						</div>
+					</div>
+				</div>
+				<div class="about-me">
+					<h3>My Achivements</h3>
+					<div class="bio-data bio-data-2">
+						<div class="boxes-icons boxes-icons-2">
+							<i class="services-icon fas fa-trophy"></i>
+							<h3 class="achiv">Winner of Inter Faculty Football Tournament</h3>
+							
+						</div>
+						<div class="boxes-icons boxes-icons-2">
+							<i class="services-icon far fa-certificate"></i>
+							<h3 class="achiv">Participant of Neymar Jr V tournament</h3>
+							
+						</div>
+						<div class="boxes-icons boxes-icons-2">
+							<i class="services-icon fas fa-trophy"></i>
+							<h3 class="achiv">Winner of football tournament in fest</h3>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="resume" class="about-me-tab">
+				<div class="about-me">
+					<h3>Resume</h3>
+					<div class="bio-data">
+						<div class="experience-and-education">
+							<div class="font-awesome-header">
+								<i class="resume-icons fas fa-briefcase"></i>
+								<h1>EXPERIENCE</h1>
+							</div>
+							<div class="name-desc less-padding">
+								<p class="absolute-para"><span>Founder</span>
+									<span class="absolute-time">2020 - present</span>
+									<br>
+									<span class="company-name">Skaaai.com</span> <br><br>
+									Skaaai is freelancing website for web development and 
+									designing.
+									<img class="absolute-img" src="{% static 'img/logoSkaai.jpg' %}" alt="" srcset="">
+									
+								</p>
+								
+							</div>
+							<div class="name-desc less-padding">
+								<p class="absolute-para"><span>Developer</span>
+									<span class="absolute-time unhighlight">2020</span>
+									<br>
+									<span class="company-name">simskuwait.net</span> <br><br>
+									Sims is a school located in quwait. Skaaai has built its fully functioning website
+									<img class="absolute-img" src="{% static 'img/sims_logo.png' %}" alt="" srcset="">
+									
+								</p>
+								
+							</div>
+							<div class="name-desc less-padding">
+								<p class="absolute-para"><span>Medical</span>
+									<span class="absolute-time unhighlight">2020 - 2021</span>
+									<br>
+									<span class="company-name">medical.net</span> <br><br>
+									Medical Website for a practicing gynecologist.
+									<img class="absolute-img uncolor" src="{% static 'img/clinic.png' %}" alt="" srcset="">
+									
+								</p>
+								
+							</div>
+
+							
+						</div>
+						<div class="experience-and-education">
+							<div class="font-awesome-header">
+								<i class="resume-icons fas fa-graduation-cap"></i>
+								<h1>EDUCATION</h1>
+								
+							</div>
+							<div class="name-desc less-padding">
+								<p class="absolute-para"><span>Jamia University</span>
+									<span class="absolute-time">2017 - current</span>
+									<br>
+									<span class="company-name">New Delhi</span> <br><br>
+									I am currently persuing Btech Computer Engineering , from jamia Millia Islamia University 
+									<img class="absolute-img uncolor" src="{% static 'img/jamia.png' %}" alt="" srcset="">
+									
+								</p>
+								
+							</div>
+							<div class="name-desc less-padding">
+								<p class="absolute-para"><span>High School</span>
+									<span class="absolute-time unhighlight">2014 - 2016</span>
+									<br>
+									<span class="company-name">Patna</span> <br><br>
+									I have completed my high school from Dav public school,patna
+									<img class="absolute-img" style="height: unset;" src="{% static 'img/DavLOGO.png' %}" alt="" srcset="">
+									
+								</p>
+								
+							</div>
+							<div class="name-desc less-padding">
+								<p class="absolute-para"><span>Primary School</span>
+									<span class="absolute-time unhighlight">2008 - 2014</span>
+									<br>
+									<span class="company-name">Patna</span> <br><br>
+									I have completed my primary school from Dav public school,patna
+									<img class="absolute-img" style="height: unset;" src="{% static 'img/DavLOGO.png' %}" alt="" srcset="">
+									
+								</p>
+								
+							</div>
+							
+						</div>
+						
+					</div>
+				</div>
+				<div class="about-me">
+					<h3>Skills</h3>
+					<div class="bio-data">
+						<div class="experience-and-education">
+							<div class="font-awesome-header">
+								<i class="resume-icons fas fa-code"></i>
+								<h1>CODING</h1>
+							</div>
+							<div class="name-desc less-padding full-line">
+								<div class="progressBar-div">
+									<span>HTML</span>
+									<div class="progress-div html"></div>
+									
+								</div>
+								
+								
+							</div>
+							<div class="name-desc less-padding full-line">
+								<div class="progressBar-div">
+									<span>CSS</span>
+									<div class="progress-div css"></div>
+									
+								</div>
+								
+								
+							</div>
+							<div class="name-desc less-padding full-line">
+								<div class="progressBar-div">
+									<span>JS</span>
+									<div class="progress-div js"></div>
+									
+								</div>
+								
+								
+							</div>
+							<div class="name-desc less-padding full-line">
+								<div class="progressBar-div">
+									<span>JQuery</span>
+									<div class="progress-div jquery"></div>
+									
+								</div>
+								
+								
+							</div>
+							<div class="name-desc less-padding full-line">
+								<div class="progressBar-div">
+									<span>React</span>
+									<div class="progress-div react"></div>
+									
+								</div>
+								
+								
+							</div>
+							<div class="name-desc less-padding full-line">
+								<div class="progressBar-div">
+									<span>Python</span>
+									<div class="progress-div python"></div>
+									
+								</div>
+								
+								
+							</div>
+							<div class="name-desc less-padding full-line">
+								<div class="progressBar-div">
+									<span>Django</span>
+									<div class="progress-div django"></div>
+									
+								</div>
+								
+								
+							</div>
+							
+
+							
+						</div>
+						<div class="experience-and-education">
+							<div class="font-awesome-header">
+								<i class="resume-icons fas fa-language"></i>
+								<h1>LANGUAGES</h1>
+							</div>
+							<div class="name-desc less-padding full-line">
+								<div class="progressBar-div">
+									<span>English</span>
+									<div class="progress-div-circle">
+										<div class="circle-filled"></div>
+										<div class="circle-filled"></div>
+										<div class="circle-filled"></div>
+										<div class="circle-filled"></div>
+										<div class="circle-unfilled"></div>
+										<div class="circle-unfilled"></div>
+									</div>
+									
+								</div>
+							</div>
+							<div class="name-desc less-padding full-line">
+								<div class="progressBar-div">
+									<span>Urdu</span>
+									<div class="progress-div-circle">
+										<div class="circle-filled"></div>
+										<div class="circle-filled"></div>
+										<div class="circle-filled"></div>
+										<div class="circle-filled"></div>
+										<div class="circle-unfilled"></div>
+										<div class="circle-unfilled"></div>
+									</div>
+									
+								</div>
+							</div>
+							<div class="name-desc less-padding full-line">
+								<div class="progressBar-div">
+									<span>Hindi</span>
+									<div class="progress-div-circle">
+										<div class="circle-filled"></div>
+										<div class="circle-filled"></div>
+										<div class="circle-filled"></div>
+										<div class="circle-filled"></div>
+										<div class="circle-filled"></div>
+										<div class="circle-unfilled"></div>
+									</div>
+									
+								</div>
+							</div>
+							
+							
+						</div>
+					</div>
+				</div>
+				
+			</div>
+			<div id="works" class="about-me-tab">
+				<div class="about-me">
+					<h3>Works</h3>
+					<div class="full-width">
+							
+						<div class="line-hide name-desc less-padding work-container">
+							<div class="image-box">
+								<img src="{% static 'img/skaaai.png' %}" alt="">
+							</div>
+							<p>SKAAAI</p>
+							<a href="https://www.skaaai.com">skaaai.com</a>
+						</div>
+
+					</div>
+					<div class="bio-data-3">
+						<div class="work-div-1">
+							<div class="line-hide name-desc less-padding work-container">
+								<div class="image-box">
+									<img src="{% static 'img/Clinic_new.png' %}" alt="">
+									
+								</div>
+								<p>CLINIC</p>
+								<a href="https://139.59.59.24/">link</a>
+							</div>
+							<div class="line-hide name-desc less-padding work-container">
+								<div class="image-box">
+									<img src="{% static 'img/tailor-3.png' %}" alt="">
+									
+								</div>
+								<p>Tailor</p>
+								<a href="https://139.59.29.54">link</a>
+
+							</div>
+							
+						</div>
+						<div class="work-div-2">
+							
+							<div class="line-hide name-desc less-padding work-container">
+								<div class="image-box">
+									<img src="{% static 'img/sims.png' %}" alt="">
+								</div>
+								<p>SIMS</p>
+								<a href="https://www.simskuwait.net">link</a>
+							</div>
+	
+						</div>
+						
+					</div>
+					<!-- <div class="full-width-80">
+							
+						<div class="line-hide name-desc less-padding work-container">
+							<div class="image-box long">
+								<img src="./img/tailor-2.png" alt="">
+							</div>
+							<p>SKAAAI</p>
+							<a href="https://www.skaaai.com">link</a>
+						</div>
+
+					</div> -->
+					<!-- <div class="full-width">
+							
+						<div class="line-hide name-desc less-padding work-container">
+							<div class="image-box long">
+								<img src="./img/tailor.png" alt="">
+							</div>
+							<p>SKAAAI</p>
+							<a>link</a>
+						</div>
+
+					</div> -->
+				</div>
+				
+			
+			</div>
+			<div id="contact" class="about-me-tab">
+				<div class="about-me">
+					<h3>Get In Touch</h3>
+
+				
+							
+					<div class="map">
+						<iframe id="iframe-width" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3504.7844346499164!2d77.2909849148271!3d28.546198394734454!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce4043cfdc857%3A0x45d1ab2b904e4449!2sOP%20Residence!5e0!3m2!1sen!2sin!4v1611992753988!5m2!1sen!2sin" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+					</div>
+
+					<div class="age-graph width-100">
+						<div class="container-progress">
+							<div class="progress-bar">
+								<span>Address:</span>
+								<p>Opee Residence,New Delhi</p>
+							</div>
+							<div class="progress-bar">
+								<span>Email:</span>
+								<p>Khan.ariz2341997@gmail.com</p>
+							</div>
+						</div>
+						<div class="progress-bar">
+							<span>Freelance:</span>
+							<p>Available</p>
+						</div>
+						<div class="progress-bar">
+							<span>phone:</span>
+							<p>+123 97478 88</p>
+						</div>
+					</div>
+
+				</div>
+				<div class="about-me">
+					<h3>Contact Form</h3>
+					
+					<form class="form-container" action="{% url 'contact' %}" method="POST">
+						{% csrf_token %}
+						<div class="name-and-input-form">
+							<input name="username" type="text" placeholder="Name">
+							<input name="email" type="email" placeholder="Email">
+						</div>
+						<textarea name="message" id="text-area" placeholder="Your Message" ></textarea>
+						<button type="submit" class="submit-btn">Send Message</button>
+					</form>
+					
+				</div>
+				
+			
+			</div>
+		</div>
+	</div>
+	<div class="glass-container"></div>
+	<script src="{% static 'js/Resume.js' %}"></script>
+</body>
+</html>
