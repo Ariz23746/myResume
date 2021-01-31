@@ -25,7 +25,7 @@ SECRET_KEY = 'vwv44l(l)y774rn!+^$_eg2wi*8hey#^w12%l#z%^*#w+#yv+)'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://arizkhan-resume.herokuapp.com/','localhost']
+ALLOWED_HOSTS = ['arizkhan-resume.herokuapp.com','localhost']
 
 
 # Application definition
