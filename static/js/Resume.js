@@ -4,6 +4,7 @@ var prevActiveDiv = document.querySelector(links[0].children[1].attributes.href.
 console.log(links[0].children[1].attributes.href.value);
 let widthWindow = window.outerWidth;
 console.log(widthWindow)
+var activeDIV = prevActiveDiv
 function smoothscroll(target,duration) {
 	var target = document.querySelector(target);
 	var targetPosition = target.offsetTop;
@@ -37,10 +38,12 @@ window.addEventListener('resize' ,() => {
 	widthWindow = window.outerWidth
 })
 
-if(widthWindow < 500) {
+if(widthWindow <= 500) {
 
+
+	document.querySelector('.btns-2').attributes.href.value = '#';
 	links.forEach(link => {
-
+		
 		// if()
 		link.addEventListener('click',() => {
 			if(prevLink) {
@@ -63,11 +66,33 @@ if(widthWindow < 500) {
 	})
 }
 else {
+	document.querySelector('.btns-2').attributes.href.value = '#';
+	console.log(document.querySelector('.btns-2'))
+	console.log(activeDIV)
+	document.querySelector('.btns-2').addEventListener('click',() => {
+		if(prevLink) {
+			prevLink.classList.remove('active-nav-link');
+			prevLink.children[0].classList.remove('active-nav-link')
+			prevLink.children[1].classList.remove('active-nav-link')
+			prevActiveDiv.classList.remove('active-div');
+		}
+		
+		
+		document.querySelector('.btns-2').classList.add('active-nav-link');
+		links[3].classList.add('active-nav-link')
+		links[3].children[0].classList.add('active-nav-link')
+		links[3].children[1].classList.add('active-nav-link')
+		document.querySelector('#contact').classList.add('active-div')
+		prevLink = links[3];
+		prevActiveDiv = document.querySelector('#contact');
+		console.log(prevActiveDiv)
+	})
+	console.log(prevLink)
 	links.forEach(link => {
-
-		// if()
+		// console.log(prevLink)
 		link.addEventListener('click',() => {
 			if(prevLink) {
+				console.log(prevLink)
 				prevLink.classList.remove('active-nav-link');
 				prevLink.children[0].classList.remove('active-nav-link')
 				prevLink.children[1].classList.remove('active-nav-link')
@@ -81,6 +106,7 @@ else {
 			currentActiveDiv.classList.add('active-div')
 			prevLink = link;
 			prevActiveDiv = currentActiveDiv;
+			activeDIV = prevActiveDiv
 		})
 	})
 }
@@ -114,7 +140,7 @@ if(cross) {
 
 const changingText = document.querySelector('.changing-text');
 
-const texts = ['freelancer','Developer','Enthusisast'];
+const texts = ['freelancer','Developer','Enthusiast'];
 let count = 0;
 let index = 0;
 let currentText = "";
