@@ -284,7 +284,7 @@ nav > ul > li:hover .nav-font-awesome {
 	width: 80%;
 	margin-left: 13%;
 	margin-top: 5.5%;
-	height: 80vh;
+	height: 85vh;
 	
 	
 }
@@ -373,12 +373,12 @@ nav > ul > li:hover .nav-font-awesome {
 	        justify-content:center;
 
 }
-.social-icons > .social {
+.social-icons > a > .social {
 	color: white;
 	margin: 0px 20px 0px 20px;
 	cursor: pointer;
 }
-.social-icons > .social:hover {
+.social-icons > a > .social:hover {
 	color: var(--hamColor);
 }
 .button-container {
