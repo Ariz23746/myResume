@@ -13,7 +13,7 @@ class HomeView(TemplateView):
 
 def Contact(request):
 
-	if(request.method == "POST"):
+	if request.method == "POST":
 		username = request.POST['username']
 		email = request.POST['email']
 		message = request.POST['message']
