@@ -20,10 +20,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'vwv44l(l)y774rn!+^$_eg2wi*8hey#^w12%l#z%^*#w+#yv+)'
+SECRET_KEY = os.environ.get("ARIZ_SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['arizkhan-resume.herokuapp.com','localhost']
 
@@ -123,9 +123,8 @@ EMAIL_PORT = 587
 
 
 
-EMAIL_HOST_USER = "khan.ariz2341997@gmail.com"
-print(EMAIL_HOST_USER)
-EMAIL_HOST_PASSWORD = "xyutdevshztqdhgf"
+EMAIL_HOST_USER = os.environ.get("MY_EMAIL")
+EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD")
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
