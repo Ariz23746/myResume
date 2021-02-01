@@ -25,7 +25,7 @@ SECRET_KEY = os.environ.get("ARIZ_SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['arizkhan-resume.herokuapp.com','localhost','http://www.arizkhan.com','http://arizkhan.com']
+ALLOWED_HOSTS = ['arizkhan-resume.herokuapp.com','localhost','http://www.arizkhan.com','http://arizkhan.com','www.arizkhan.com','arizkhan.com']
 
 
 # Application definition
