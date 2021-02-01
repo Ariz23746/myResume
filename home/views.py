@@ -30,6 +30,7 @@ def Contact(request):
 		send_mail(
 			'MOHAMMAD ARIZ KHAN',
 			f'Thank you for contacting me {username}! I will get in touch with you shortly..',
+			'THANK YOU!',
 			[email],
 			fail_silently = False)	
 		contactInfo = ContactUsersInfo(name=username,email=email,message=message)
