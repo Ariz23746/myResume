@@ -25,7 +25,7 @@ def Contact(request):
 		sendEmail.set_content(message)
 		# print(os.environ.get('EMAIL_HOST_PASSWORD'))
 		with smtplib.SMTP_SSL('smtp.gmail.com',465) as smtp:
-			smtp.login(os.environ.get("MY_EMAIL"), os.environ.get("EMAIL_HOST_PASSWORD"))
+			smtp.login("khan.ariz2341997@gmail.com", "afrnafrnd4u23746")
 			smtp.send_message(sendEmail)
 		send_mail(
 			'MOHAMMAD ARIZ KHAN',
