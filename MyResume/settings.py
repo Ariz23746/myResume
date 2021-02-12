@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get("ARIZ_SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['arizkhan-resume.herokuapp.com','localhost','http://www.arizkhan.com','https://www.arizkhan.com','www.arizkhan.com','arizkhan.com']
 
