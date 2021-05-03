@@ -137,7 +137,6 @@ if (cross) {
   });
 }
 
-window.onload() = {};
 const changingText = document.querySelector(".changing-text");
 
 const texts = ["Freelancer", "Developer", "Enthusiast"];
